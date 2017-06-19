@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:29 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/19 08:54:09 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/19 09:27:25 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ int     main(int ac,char **av)
     if (ac != 2)
         err_found("wrong arg");
     parse(&data, av[1]);
+    
     return(0);
 }
