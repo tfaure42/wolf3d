@@ -6,12 +6,12 @@
 #    By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/18 11:04:41 by tfaure            #+#    #+#              #
-#    Updated: 2017/06/18 18:28:40 by tfaure           ###   ########.fr        #
+#    Updated: 2017/06/19 09:15:26 by myernaux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = wolf3d
-NAMEBIN = libftprintf.a
+NAMEBIN = wolf3d.a
 FLAGS = -Wall -Wextra -Werror
 INC = includes
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
