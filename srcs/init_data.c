@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 11:39:48 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/20 09:42:56 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/20 14:34:42 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static void		find_player_position(t_data *data)
 void			init_data(t_data *data)
 {
 	find_player_position(data);
-	// printf("posx = %f, posy = %f\n", data->posx, data->posy);
+	printf("posx = %f, posy = %f\n", data->posx, data->posy);
 	data->distpp = ((LEN / 2) / tan((FOV * RADIANCONV) / 2));
-	data->angle_ray = 0.1875;
+	data->angle_ray = FOV / LEN;
 	printf("%f",data->angle_ray);
 	data->alpha = 60;
 	data->alpha = set_degree(data->alpha);

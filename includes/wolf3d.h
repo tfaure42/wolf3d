@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:53 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/20 09:31:04 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/20 12:54:49 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define PLAYER 2
 # define WALL 64
 # define PLAYERSIZE 32
-# define FOV 60
+# define FOV 60.0
 # define HEIGHT 200
 # define LEN 320
 # define RADIANCONV 0.017453292
@@ -43,6 +43,7 @@ typedef struct  s_data
 	double	by;
 	int		height;
 	double	beta;
+	int		wally;
 }               t_data;
 
 typedef struct  s_env
@@ -56,10 +57,11 @@ typedef struct  s_env
 	char			*data;
 }               t_env;
 
-int     	parse(t_data *data, char *filename);
-void        init_data(t_data *data);
+int			parse(t_data *data, char *filename);
+void		init_data(t_data *data);
 void		init_mlx(t_env *env);
-void    	find_the_wall(t_data *data, t_env *env);
+void		find_the_wall(t_data *data, t_env *env);
 double		set_degree(double deg);
+void		draw_wall(t_data *data, t_env *env);
 
 #endif
