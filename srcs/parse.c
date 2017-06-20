@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:16:57 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/19 12:19:31 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/20 16:53:43 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,17 @@ int		parse(t_data *data, char *filename)
 	{
 		data->map_size = ft_atoi(map[1]);
 		free_splited_str(map);
-		data->map = malloc(sizeof(char*) * data->map_size + 1);
+		data->map = malloc(sizeof(char*) * (data->map_size + 1));
+		i = 0;
 		while (get_next_line(fd, &line))
 			if ((int)ft_strlen(line) == data->map_size)
-				data->map[i++] = line;
+				{
+					data->map[i] = line;
+					i++;
+				}
 			else
 				err_found("bad align in the map\nplease check if the number you've set as mapsize is correct or if there is a number missing in the map");
+			data->map[i] = "\0";
 	}
 	else
 		err_found("mapsize needed before the map");

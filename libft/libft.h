@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 16:05:35 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/19 12:17:11 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/20 15:57:45 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 # define BUFF_SIZE 1
 # define NBMAXFD 42
+# define FD_MAX 5632
 
 typedef struct		s_list
 {

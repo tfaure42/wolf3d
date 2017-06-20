@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:53 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/20 12:54:49 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/20 16:57:43 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define HEIGHT 200
 # define LEN 320
 # define RADIANCONV 0.017453292
+# define PLACEPLAYERX 1
+# define PLACEPLAYERY 3
 # define MAKE_AMERICA_GREAT_AGAIN 0
 
 typedef struct  s_data
