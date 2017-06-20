@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:16:57 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/18 18:25:12 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/19 12:19:31 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int		parse(t_data *data, char *filename)
 		err_found("get_next_line error");
 	map = ft_strsplit(line, ':');
 	if (ft_strcmp(map[0], "mapsize") == 0)
-	{	
+	{
 		data->map_size = ft_atoi(map[1]);
 		free_splited_str(map);
-		data->map = malloc(sizeof(char*) * data->map_size);
+		data->map = malloc(sizeof(char*) * data->map_size + 1);
 		while (get_next_line(fd, &line))
 			if ((int)ft_strlen(line) == data->map_size)
 				data->map[i++] = line;

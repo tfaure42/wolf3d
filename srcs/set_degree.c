@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   set_degree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/18 11:17:29 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/19 09:27:25 by tfaure           ###   ########.fr       */
+/*   Created: 2017/06/20 09:10:23 by tfaure            #+#    #+#             */
+/*   Updated: 2017/06/20 09:31:39 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/wolf3d.h"
+#include "../includes/wolf3d.h"
 
-int     main(int ac,char **av)
+double		set_degree(double deg)
 {
-    t_data data;
-
-    if (ac != 2)
-        err_found("wrong arg");
-    parse(&data, av[1]);
-    
-    return(0);
+	if ((deg - 360) > 0)
+		deg = deg - 360;
+	if (deg < 0)
+		deg = deg + 360;
+	return (deg);
 }

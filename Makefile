@@ -6,13 +6,13 @@
 #    By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/18 11:04:41 by tfaure            #+#    #+#              #
-#    Updated: 2017/06/19 09:15:26 by myernaux         ###   ########.fr        #
+#    Updated: 2017/06/20 09:31:25 by tfaure           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = wolf3d
 NAMEBIN = wolf3d.a
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra #-Werror
 INC = includes
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
 SRC_PATH = srcs
@@ -20,7 +20,7 @@ OBJ_PATH = obj
 LIBFT_PATH = libft
 LIBFTA = libft.a
 LIBFT = $(addprefix $(LIBFT_PATH)/,$(LIBFTA))
-SRC_NAME = parse.c
+SRC_NAME = parse.c init_data.c find_the_wall.c init_mlx.c set_degree.c
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(SRC_NAME:.c=.o))
 
@@ -40,7 +40,7 @@ $(NAME): $(OBJS)
 	@cp $(LIBFT) ./$(NAMEBIN)
 	@ar rc $(NAMEBIN) $(OBJS)
 	@ranlib $(NAMEBIN)
-	@gcc -o $(NAME) $(NAMEBIN) main.c $(MLXFLAGS)
+	@gcc -o $(NAME) $(NAMEBIN) srcs/main.c $(MLXFLAGS)
 	@echo "$(GREEN)--------Wolf3D compiled--------$(NC)"
 
 clean:
