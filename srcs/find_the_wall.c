@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/20 17:24:12 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/20 18:20:57 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void		ft_wall_height(t_data *data, double dist1)
 {
 	dist1 = dist1 * cos((data->beta - data->alpha) * RADIANCONV);
-	printf("beta - alpha = %f\n", data->beta - data->alpha);
+	// printf("beta - alpha = %f\n", data->beta - data->alpha);
 	data->height = (WALL / dist1) * data->distpp;
-	printf("wallheight = %d\n", data->height);
+	// printf("wallheight = %d\n", data->height);
 }
 
 int		ft_iswall(t_data *data, double x, double y)
@@ -85,7 +85,7 @@ void	ft_vertical(t_data *data)
 
 }
 
-void	find_the_wall(t_data *data, t_env *env)
+void	find_the_wall(t_data *data ,t_env *env)
 {
 	double	dist1;
 	double	dist2;
