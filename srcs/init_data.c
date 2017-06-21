@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 11:39:48 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 10:05:57 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/06/21 11:15:35 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			init_data(t_data *data)
 	data->distpp = ((LEN / 2) / tan((FOV * RADIANCONV) / 2));
 	data->angle_ray = FOV / LEN;
 	// printf("%f",data->angle_ray);
-	data->alpha = 90;
+	data->alpha = 0;
 	data->alpha = set_degree(data->alpha);
 	// printf("distpp = %d, alpha = %f\n", data->distpp, data->alpha);
 }

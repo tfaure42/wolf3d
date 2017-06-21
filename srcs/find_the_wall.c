@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_the_wall.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 09:34:58 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/06/21 11:02:33 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void		ft_wall_height(t_data *data, double dist1, double angle)
 	double		nice_dist;
 
 	nice_dist = 0;
-	nice_dist = dist1 * cos((angle) * RADIANCONV);
+	nice_dist = dist1  * cos((angle) * RADIANCONV);
 	printf("dist1= %f\n", nice_dist);
-	data->height = WALL / nice_dist * data->distpp;
+	data->height = fl_to_int(WALL / nice_dist * data->distpp);
 	printf("wallheight = %d\n", data->height);
 }
 

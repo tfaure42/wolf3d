@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:53 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 10:03:50 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/06/21 11:03:38 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # define WALL 64
 # define PLAYERSIZE 32
 # define FOV 60.0
-# define HEIGHT 200
-# define LEN 320
+# define HEIGHT 720
+# define LEN 960
 # define RADIANCONV 0.017453292
 # define PLACEPLAYERX 1
 # define PLACEPLAYERY 3
