@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+         #
+#    By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/18 11:04:41 by tfaure            #+#    #+#              #
-#    Updated: 2017/06/20 11:45:34 by tfaure           ###   ########.fr        #
+#    Updated: 2017/06/21 10:57:52 by myernaux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ_PATH = obj
 LIBFT_PATH = libft
 LIBFTA = libft.a
 LIBFT = $(addprefix $(LIBFT_PATH)/,$(LIBFTA))
-SRC_NAME = parse.c init_data.c find_the_wall.c init_mlx.c set_degree.c draw_wall.c
+SRC_NAME = parse.c init_data.c find_the_wall.c init_mlx.c set_degree.c draw_wall.c keycode.c
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(SRC_NAME:.c=.o))
 

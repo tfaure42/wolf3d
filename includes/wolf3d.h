@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:53 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 11:03:38 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/21 11:20:03 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ void		find_the_wall(t_data *data, t_env *env);
 double		set_degree(double deg);
 void		draw_wall(t_data *data, t_env *env);
 void		put_mlx(t_env *env);
+int     	my_key_func(int keycode, t_env *env);
 
 #endif

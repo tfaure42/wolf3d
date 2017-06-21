@@ -6,7 +6,7 @@
 /*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:29 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 10:04:14 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/06/21 10:58:03 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int     main(int ac,char **av)
     init_mlx(&env);
     find_the_wall(&data, &env);
     put_mlx(&env);
-    //mlx_hook(env.win, 2, 3, my_key_func, &env);
+    mlx_hook(env.win, 2, 3, my_key_func, &env);
 	mlx_loop(env.mlx);
     return(MAKE_AMERICA_GREAT_AGAIN);
 }
