@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 16:05:35 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/20 15:57:45 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/21 10:41:17 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ void				err_found(char *str);
 void				free_splited_str(char **str);
 int					len_of_tab(char **tab);
 double				ft_atof(const char *str);
+int					fl_to_int(float fl);
 
 #endif
