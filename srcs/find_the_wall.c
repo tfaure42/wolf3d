@@ -6,17 +6,20 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/20 18:47:33 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/21 09:03:22 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
 
-void		ft_wall_height(t_data *data, double dist1)
+void		ft_wall_height(t_data *data, double dist1, double angle)
 {
-	dist1 = dist1 * cos((data->beta - data->alpha) * RADIANCONV);
-	// printf("beta - alpha = %f\n", data->beta - data->alpha);
-	data->height = (WALL / dist1) * data->distpp;
+	double		nice_dist;
+
+	nice_dist = 0;
+	nice_dist = dist1 * cos((angle) * RADIANCONV);
+	printf("dist1= %f\n", nice_dist);
+	data->height = WALL / nice_dist * data->distpp;
 	printf("wallheight = %d\n", data->height);
 }
 
@@ -91,27 +94,30 @@ void	find_the_wall(t_data *data ,t_env *env)
 {
 	double	dist1;
 	double	dist2;
+	double	angle;
 
-	data->beta = data->alpha - 30;
+	data->beta = data->alpha + 30;
 	data->beta = set_degree(data->beta);
+	angle = 30;
 	// printf("beta = %f", data->beta);
 	data->wally = 0;
-	while (data->beta != (data->alpha + 30))
+	while (angle != -30)
 	{
 		// printf("\nhoriz\n");
     	ft_horizontal(data);
 		// printf("\nvertic\n");
     	ft_vertical(data);
 		// printf("\ndist calc\n");
-		dist1 = sqrt(pow(data->posx - data->ax, 2) + pow(data->posy - data->ay, 2));
-		dist2 = sqrt(pow(data->posx - data->bx, 2) + pow(data->posy - data->by, 2));
+		dist1 = (int)sqrt(pow(data->posx - data->ax, 2) + (int)pow(data->posy - data->ay, 2));
+		dist2 = (int)sqrt(pow(data->posx - data->bx, 2) + (int)pow(data->posy - data->by, 2));
 		dist1 = dist1 < dist2 ? dist1 : dist2;
 		// printf("\nwall_height\n");
-		ft_wall_height(data, dist1);
+		ft_wall_height(data, dist1, angle);
 		draw_wall(data, env);
 		// printf("\nincrement\n");
-		data->beta += data->angle_ray;
+		data->beta -= data->angle_ray;
 		data->wally++;
+		angle -= data->angle_ray;
 		// printf("\nangleray = %f\nbeta = %f\n",data->angle_ray, data->beta);
 	}
 }
