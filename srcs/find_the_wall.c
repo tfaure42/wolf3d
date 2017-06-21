@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_the_wall.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 09:03:22 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/21 09:34:58 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	find_the_wall(t_data *data ,t_env *env)
 	data->beta = set_degree(data->beta);
 	angle = 30;
 	// printf("beta = %f", data->beta);
-	data->wally = 0;
+	data->wallx = 0;
 	while (angle != -30)
 	{
 		// printf("\nhoriz\n");
@@ -116,7 +116,7 @@ void	find_the_wall(t_data *data ,t_env *env)
 		draw_wall(data, env);
 		// printf("\nincrement\n");
 		data->beta -= data->angle_ray;
-		data->wally++;
+		data->wallx++;
 		angle -= data->angle_ray;
 		// printf("\nangleray = %f\nbeta = %f\n",data->angle_ray, data->beta);
 	}
