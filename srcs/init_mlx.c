@@ -19,3 +19,8 @@ void		init_mlx(t_env *env)
 	env->data = mlx_get_data_addr(env->img, &env->bpp, &env->sizeline, &env->endian);
 	env->win = mlx_new_window(env->mlx, LEN, HEIGHT, "Wolf3d");
 }
+
+void		put_mlx(t_env *env)
+{
+	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
+}

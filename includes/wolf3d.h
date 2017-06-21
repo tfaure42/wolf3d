@@ -6,7 +6,7 @@
 /*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:53 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 09:14:49 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/06/21 10:03:50 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void		init_mlx(t_env *env);
 void		find_the_wall(t_data *data, t_env *env);
 double		set_degree(double deg);
 void		draw_wall(t_data *data, t_env *env);
+void		put_mlx(t_env *env);
 
 #endif
