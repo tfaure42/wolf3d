@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_wall.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 11:35:18 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/20 18:20:00 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/21 09:23:14 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,21 @@
 
 void    draw_wall(t_data *data, t_env *env)
 {
-    // printf("coucou\n");
-    // printf("posx = %f, posy = %f", data->posx, data->posy);
+    int max;
+
+    max = 200;
+    data->wallx = (HEIGHT / 2) - (data->height / 2);
+    if (data->height >= max)
+    {
+        while (max != 0)
+        {
+            ((unsigned int *)env->data)[max + data->wally * LEN] = 0xFF0000;
+            max--;
+        }
+    }
+    while (data->wallx >= data->wallx - data->height)
+    {
+        ((unsigned int *)env->data)[data->wallx + data->wally * LEN] = 0xFF0000;
+        data->wallx--;
+    }
 }
