@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:16:57 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/20 18:20:04 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/21 09:21:41 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		parse(t_data *data, char *filename)
 			else
 				err_found("bad align in the map\nplease check if the number you've set as mapsize is correct or if there is a number missing in the map");
 			data->map[i] = 0;
+			//ceci est la modif
 	}
 	else
 		err_found("mapsize needed before the map");
