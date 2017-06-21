@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 11:46:38 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/21 21:23:41 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		ft_wall_height(t_data *data, double dist1, double angle)
 	double		nice_dist;
 
 	nice_dist = 0;
-	nice_dist = dist1  * cos((angle) * RADIANCONV);
+	nice_dist = dist1  * cos(angle * M_PI / 180);
 	// printf("dist1= %f\n", nice_dist);
 	data->height = fl_to_int(WALL / nice_dist * data->distpp);
 	// printf("wallheight = %d\n", data->height);
@@ -44,14 +44,14 @@ void	ft_horizontal(t_data *data)
 	else
 		data->ay = (int)(data->posy / WALL) * WALL + 64;
 	// printf("ay = %f\n", data->ay);
-	data->ax = data->posx + (data->posy - data->ay) * tan(data->beta * RADIANCONV);
+	data->ax = data->posx + (data->posy - data->ay) * tan(data->beta * M_PI / 360);
 	// printf("ax = %f\n", data->ax);
 	if (data->beta <= 180)
 		ya = -64;
 	else
 		ya = 64;
 	// printf("ya = %d\n", ya);
-	xa = WALL / tan(data->beta * RADIANCONV);
+	xa = WALL / tan(data->beta * M_PI / 180);
 	// printf("xa = %d\n", xa);
 	while (ft_iswall(data, data->ax, data->ay) == 0)
 	{
@@ -72,14 +72,14 @@ void	ft_vertical(t_data *data)
 	else
 		data->bx = (int)(data->posy / WALL) * WALL - 1;
 		// printf("bx = %f\n", data->bx);
-	data->by = data->posy + (data->posx - data->bx) * tan(data->beta * RADIANCONV);
+	data->by = data->posy + (data->posx - data->bx) * tan(data->beta * M_PI / 180);
 	// printf("by = %f\n", data->by); 
 	if (data->beta <= 90 || data->beta >= 270)
 		xa = WALL;
 	else
 		xa = -WALL;
 	// printf("xa = %d\n", xa);
-	ya = WALL * tan(data->beta * RADIANCONV);
+	ya = WALL * tan(data->beta * M_PI / 180);
 	// printf("ya = %d\n", ya);
 	while (ft_iswall(data, data->bx, data->by) == 0)
 	{

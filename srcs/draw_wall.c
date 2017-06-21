@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 11:35:18 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 11:06:59 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/21 15:10:19 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void    draw_wall(t_data *data, t_env *env)
     int max;
     int y;
 
-    max = 719;
+    max = HEIGHT - 1;
     y = (HEIGHT / 2) - (data->height / 2);
     data->wally = (HEIGHT / 2) - (data->height / 2);
     if (data->height >= max)
