@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:29 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 10:58:03 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/06/21 11:43:46 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,13 @@ int     main(int ac,char **av)
     if (ac != 2)
         err_found("wrong arg");
     parse(&data, av[1]);
+	env.dat = &data;
+    data.alpha = 0;
     while (data.map[i])
     {
 		printf("%s\n", data.map[i]);
 		i++;
     }
-    printf("couco");
     init_data(&data);
     init_mlx(&env);
     find_the_wall(&data, &env);

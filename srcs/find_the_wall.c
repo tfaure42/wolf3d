@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 11:02:33 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/21 11:46:38 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void		ft_wall_height(t_data *data, double dist1, double angle)
 
 	nice_dist = 0;
 	nice_dist = dist1  * cos((angle) * RADIANCONV);
-	printf("dist1= %f\n", nice_dist);
+	// printf("dist1= %f\n", nice_dist);
 	data->height = fl_to_int(WALL / nice_dist * data->distpp);
-	printf("wallheight = %d\n", data->height);
+	// printf("wallheight = %d\n", data->height);
 }
 
 int		ft_iswall(t_data *data, double x, double y)
@@ -99,7 +99,7 @@ void	find_the_wall(t_data *data ,t_env *env)
 	data->beta = data->alpha + 30;
 	data->beta = set_degree(data->beta);
 	angle = 30;
-	// printf("beta = %f", data->beta);
+	printf("beta = %f\n", data->beta);
 	data->wallx = 0;
 	while (angle != -30)
 	{
