@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keycode.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 10:53:07 by myernaux          #+#    #+#             */
-/*   Updated: 2017/06/21 16:49:07 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/22 14:27:47 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@ int     my_key_func(int keycode, t_env *env)
 {
     if (keycode == 53)
         exit(0);
+	if (keycode == 126)
+	{
+		env->dat->px += 0.5;
+	}
+	if (keycode == 125)
+	{
+		env->dat->px -= 0.5;
+	}
     if (keycode == 124)
     {
 		env->dat->alpha -= 3; 

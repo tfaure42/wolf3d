@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_the_wall.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/22 13:21:23 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/22 15:52:27 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_iswall(t_data *data, double x, double y)
 {
 	
 	if ((int)x / WALL < 0 || (int)y / WALL < 0 || (int)x / WALL >= data->map_size-1 || (int)y / WALL >= data->map_size-1)
-		return(1);
+		return (1);
 	else if (data->map[(int)x / WALL][(int)y / WALL] == '1')
 		return (1);
 	// printf("x = %d, y = %d, map = %c\n",(int)x / WALL , (int)y / WALL, data->map[(int)x / WALL][(int)y/WALL]);

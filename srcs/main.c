@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:29 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 16:49:59 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/22 14:12:07 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ int     main(int ac,char **av)
 		printf("%s\n", data.map[i]);
 		i++;
     }
+    data.px = 1;
+    data.py = 3;
     init_data(&data);
     init_mlx(&env);
     find_the_wall(&data, &env);
     put_mlx(&env);
     mlx_hook(env.win, 2, 3, my_key_func, &env);
 	mlx_loop(env.mlx);
-    return(MAKE_AMERICA_GREAT_AGAIN);
+    return (MAKE_AMERICA_GREAT_AGAIN);
 }

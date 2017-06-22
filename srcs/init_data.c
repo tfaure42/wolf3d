@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 11:39:48 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/22 12:10:33 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/22 14:11:58 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void			init_data(t_data *data)
 {
 	// printf("init_data\n");
-	data->posx = PLACEPLAYERX * WALL + (WALL / 2);
-	data->posy = PLACEPLAYERY * WALL + (WALL / 2);
+	data->posx = data->px * WALL + (WALL / 2);
+	data->posy = data->py * WALL + (WALL / 2);
 	// printf("posx = %f, posy = %f\n", data->posx, data->posy);
 	data->distpp = ((LEN / 2) / tan((FOV * RADIANCONV) / 2));
 	data->angle_ray = FOV / LEN;
