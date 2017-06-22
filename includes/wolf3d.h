@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:53 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/22 11:28:35 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/22 14:11:29 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@
 # define HEIGHT 720
 # define LEN 960
 # define RADIANCONV 0.017453292
-# define PLACEPLAYERX 1
-# define PLACEPLAYERY 3
 # define MAKE_AMERICA_GREAT_AGAIN 0
 
 typedef struct  s_data
@@ -36,6 +34,8 @@ typedef struct  s_data
 	int		map_size;
 	double	posx;
 	double	posy;
+	double	px;
+	double	py;
 	int		distpp;
 	double  angle_ray;
 	double	alpha;
