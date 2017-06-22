@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 21:23:41 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/22 13:21:23 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_horizontal(t_data *data)
 	else
 		data->ay = (int)(data->posy / WALL) * WALL + 64;
 	// printf("ay = %f\n", data->ay);
-	data->ax = data->posx + (data->posy - data->ay) * tan(data->beta * M_PI / 360);
+	data->ax = data->posx + (data->posy - data->ay) / tan(data->beta * M_PI / 180);
 	// printf("ax = %f\n", data->ax);
 	if (data->beta <= 180)
 		ya = -64;
@@ -67,7 +67,7 @@ void	ft_vertical(t_data *data)
 	int	xa;
 
 	
-	if (data->beta <= 90 || data->beta >= 270)
+	if (data->beta <= 90 && data->beta >= 270)
 		data->bx = (int)(data->posx / WALL) * WALL + 64;
 	else
 		data->bx = (int)(data->posy / WALL) * WALL - 1;
@@ -97,7 +97,7 @@ void	find_the_wall(t_data *data ,t_env *env)
 	double	angle;
 
 	data->beta = data->alpha + 30;
-	data->beta = set_degree(data->beta);
+	// data->beta = set_degree(data->beta);
 	angle = 30;
 	printf("beta = %f\n", data->beta);
 	data->wallx = 0;
