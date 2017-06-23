@@ -6,7 +6,7 @@
 /*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:53 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/22 14:11:29 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/06/23 11:16:46 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,7 @@ double		set_degree(double deg);
 void		draw_wall(t_data *data, t_env *env);
 void		put_mlx(t_env *env);
 int     	my_key_func(int keycode, t_env *env);
+void		move_forward(t_env *env);
+void		move_back(t_env *env);
 
 #endif
