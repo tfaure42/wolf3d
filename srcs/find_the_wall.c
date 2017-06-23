@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/23 11:34:02 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/23 13:20:24 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,19 @@ void		ft_wall_height(t_data *data, double dist1, double angle)
 
 int		ft_iswall(t_data *data, double x, double y)
 {
-	
+	printf("x = %d, y = %d\n",(int)x / WALL , (int)y / WALL);//, data->map[(int)x / WALL][(int)y/WALL]);
 	if ((int)x / WALL < 0 || (int)y / WALL < 0 || (int)x / WALL >= data->map_size-1 || (int)y / WALL >= data->map_size-1)
-		return (1);
+		{
+			printf("no wall found\n");
+			data->color = 0xFF0000;
+			return(1);
+		}
 	if (data->map[(int)x / WALL][(int)y / WALL] == '1')
-		return (1);
+		{
+			data->color = 0x00FF00;
+			return (1);
+		}
+		data->color = 0x000000;
 	// printf("x = %d, y = %d, map = %c\n",(int)x / WALL , (int)y / WALL, data->map[(int)x / WALL][(int)y/WALL]);
 	return (0);
 }
@@ -48,7 +56,7 @@ void	ft_horizontal(t_data *data)
 	// printf("ax = %f\n", data->ax);
 	if ((int)(data->beta / 180) % 2 == 0)
 		ya = -64;
-	else
+	else if ((int)(data->beta / 180) % 2 == 1)
 		ya = 64;
 	// printf("ya = %d\n", ya);
 	xa = WALL / tan(data->beta * M_PI / 180);
@@ -76,7 +84,7 @@ void	ft_vertical(t_data *data)
 	// printf("by = %f\n", data->by); 
 	if (tan(data->beta * M_PI / 180) >= 0)
 		xa = WALL;
-	else
+	else if (tan(data->beta * M_PI / 180) >= 0)
 		xa = -WALL;
 	// printf("xa = %d\n", xa);
 	ya = WALL * tan(data->beta * M_PI / 180);
@@ -116,6 +124,7 @@ void	find_the_wall(t_data *data ,t_env *env)
 		draw_wall(data, env);
 		// printf("\nincrement\n");
 		data->beta -= data->angle_ray;
+		data->beta = set_degree(data->beta);
 		data->wallx++;
 		angle -= data->angle_ray;
 		// printf("\nangleray = %f\nbeta = %f\n",data->angle_ray, data->beta);

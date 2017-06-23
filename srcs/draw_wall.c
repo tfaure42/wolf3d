@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 11:35:18 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/21 15:10:19 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/23 13:18:13 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void    draw_wall(t_data *data, t_env *env)
     {
         while (max != 0)
         {
-            ((unsigned int *)env->data)[data->wallx + max * LEN] = 0xFF0000;
+            ((unsigned int *)env->data)[data->wallx + max * LEN] = data->color;
             max--;
         }
     }
@@ -32,7 +32,7 @@ void    draw_wall(t_data *data, t_env *env)
     {
         while (data->wally <= HEIGHT - y)
         {
-            ((unsigned int *)env->data)[data->wallx + data->wally * LEN] = 0xFF0000;
+            ((unsigned int *)env->data)[data->wallx + data->wally * LEN] = data->color;
             data->wally++;
         }
     }
