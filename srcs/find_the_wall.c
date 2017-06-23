@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_the_wall.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/22 15:52:27 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/06/23 11:34:02 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_iswall(t_data *data, double x, double y)
 	
 	if ((int)x / WALL < 0 || (int)y / WALL < 0 || (int)x / WALL >= data->map_size-1 || (int)y / WALL >= data->map_size-1)
 		return (1);
-	else if (data->map[(int)x / WALL][(int)y / WALL] == '1')
+	if (data->map[(int)x / WALL][(int)y / WALL] == '1')
 		return (1);
 	// printf("x = %d, y = %d, map = %c\n",(int)x / WALL , (int)y / WALL, data->map[(int)x / WALL][(int)y/WALL]);
 	return (0);
@@ -39,14 +39,14 @@ void	ft_horizontal(t_data *data)
 	int	ya;
 	int	xa;
 
-	if (data->beta <= 180)
+	if ((int)(data->beta / 180) % 2 == 0)
 		data->ay = (int)(data->posy / WALL) * WALL - 1;
-	else
+	else if ((int)(data->beta / 180) % 2 == 1)
 		data->ay = (int)(data->posy / WALL) * WALL + 64;
-	// printf("ay = %f\n", data->ay);
+	// printf("tan = %f\n", tan(data->beta * M_PI / 180));
 	data->ax = data->posx + (data->posy - data->ay) / tan(data->beta * M_PI / 180);
 	// printf("ax = %f\n", data->ax);
-	if (data->beta <= 180)
+	if ((int)(data->beta / 180) % 2 == 0)
 		ya = -64;
 	else
 		ya = 64;
@@ -67,14 +67,14 @@ void	ft_vertical(t_data *data)
 	int	xa;
 
 	
-	if (data->beta <= 90 && data->beta >= 270)
+	if (tan(data->beta * M_PI / 180) >= 0)
 		data->bx = (int)(data->posx / WALL) * WALL + 64;
-	else
+	else if (tan(data->beta * M_PI / 180) >= 0)
 		data->bx = (int)(data->posy / WALL) * WALL - 1;
 		// printf("bx = %f\n", data->bx);
 	data->by = data->posy + (data->posx - data->bx) * tan(data->beta * M_PI / 180);
 	// printf("by = %f\n", data->by); 
-	if (data->beta <= 90 || data->beta >= 270)
+	if (tan(data->beta * M_PI / 180) >= 0)
 		xa = WALL;
 	else
 		xa = -WALL;
@@ -97,9 +97,9 @@ void	find_the_wall(t_data *data ,t_env *env)
 	double	angle;
 
 	data->beta = data->alpha + 30;
-	// data->beta = set_degree(data->beta);
+	data->beta = set_degree(data->beta);
 	angle = 30;
-	printf("beta = %f\n", data->beta);
+	// printf("beta = %f\n", data->beta);
 	data->wallx = 0;
 	while (angle != -30)
 	{
