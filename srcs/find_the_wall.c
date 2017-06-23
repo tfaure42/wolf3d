@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/23 13:20:24 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/23 16:56:59 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,20 @@ void		ft_wall_height(t_data *data, double dist1, double angle)
 
 int		ft_iswall(t_data *data, double x, double y)
 {
-	printf("x = %d, y = %d\n",(int)x / WALL , (int)y / WALL);//, data->map[(int)x / WALL][(int)y/WALL]);
-	if ((int)x / WALL < 0 || (int)y / WALL < 0 || (int)x / WALL >= data->map_size-1 || (int)y / WALL >= data->map_size-1)
-		{
-			printf("no wall found\n");
-			data->color = 0xFF0000;
-			return(1);
-		}
+	//printf("x = %d, y = %d\n",(int)x / WALL , (int)y / WALL);//, data->map[(int)x / WALL][(int)y/WALL]);
+	data->color = 0x000000;
+	if ((int)x / WALL < 0 || (int)y / WALL < 0 || (int)x / WALL > data->map_size-1 || (int)y / WALL > data->map_size-1)
+	{
+		// printf("yoyo");
+		data->color = 0;
+		return(1);
+	}
+	if ((int)x / WALL == 0 || (int)y / WALL == 0 || (int)x / WALL == data->map_size-1 || (int)y / WALL == data->map_size-1)
+	{
+		// printf("no wall found\n");
+		data->color = 0xFF0000;
+		return(1);
+	}
 	if (data->map[(int)x / WALL][(int)y / WALL] == '1')
 		{
 			data->color = 0x00FF00;
@@ -52,7 +59,7 @@ void	ft_horizontal(t_data *data)
 	else if ((int)(data->beta / 180) % 2 == 1)
 		data->ay = (int)(data->posy / WALL) * WALL + 64;
 	// printf("tan = %f\n", tan(data->beta * M_PI / 180));
-	data->ax = data->posx + (data->posy - data->ay) / tan(data->beta * M_PI / 180);
+	data->ax = data->posx + (data->posy - data->ay) * tan(data->beta * M_PI / 180);
 	// printf("ax = %f\n", data->ax);
 	if ((int)(data->beta / 180) % 2 == 0)
 		ya = -64;
@@ -100,8 +107,8 @@ void	ft_vertical(t_data *data)
 
 void	find_the_wall(t_data *data ,t_env *env)
 {
-	double	dist1;
-	double	dist2;
+	int	dist1;
+	int	dist2;
 	double	angle;
 
 	data->beta = data->alpha + 30;
@@ -116,10 +123,14 @@ void	find_the_wall(t_data *data ,t_env *env)
 		// printf("\nvertic\n");
     	ft_vertical(data);
 		// printf("\ndist calc\n");
-		dist1 = (int)sqrt(pow(data->posx - data->ax, 2) + (int)pow(data->posy - data->ay, 2));
-		dist2 = (int)sqrt(pow(data->posx - data->bx, 2) + (int)pow(data->posy - data->by, 2));
-		dist1 = dist1 < dist2 ? dist1 : dist2;
-		// printf("\nwall_height\n");
+		dist1 = sqrt((int)pow(data->posx - data->ax, 2) + (int)pow(data->posy - data->ay, 2));
+		dist2 = sqrt((int)pow(data->posx - data->bx, 2) + (int)pow(data->posy - data->by, 2));
+		// printf("dist1 = %d",dist1);
+		if (abs(dist2) < abs(dist1) || dist1 == -2147483648)
+			dist1 = abs(dist2);
+		else
+			dist1 = abs(dist1);
+		// printf(", dist2 = %d, shortest = %d\n",dist2, dist1);
 		ft_wall_height(data, dist1, angle);
 		draw_wall(data, env);
 		// printf("\nincrement\n");
