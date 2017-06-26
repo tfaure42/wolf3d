@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:29 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/23 16:55:25 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/26 10:38:24 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int     main(int ac,char **av)
     parse(&data, av[1]);
 	env.dat = &data;
     data.alpha = 0;
-    while (data.map[i])
+    /*while (data.map[i])
     {
 		printf("%s\n", data.map[i]);
 		i++;
-    }
+    }*/
     data.px = 6;
     data.py = 5;
     init_data(&data);

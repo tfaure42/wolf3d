@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_the_wall.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/23 16:56:59 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/26 10:35:01 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ void	find_the_wall(t_data *data ,t_env *env)
 	int	dist2;
 	double	angle;
 
+	draw_env(env, data);
 	data->beta = data->alpha + 30;
 	data->beta = set_degree(data->beta);
 	angle = 30;

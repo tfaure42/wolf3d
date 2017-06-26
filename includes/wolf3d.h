@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:53 by tfaure            #+#    #+#             */
-/*   Updated: 2017/06/23 13:17:54 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/06/26 10:34:44 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ void		put_mlx(t_env *env);
 int     	my_key_func(int keycode, t_env *env);
 void		move_forward(t_env *env);
 void		move_back(t_env *env);
+void    	draw_env(t_env *env, t_data *data);
 
 #endif
