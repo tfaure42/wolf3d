@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/10 15:23:02 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/11 12:37:48 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		ft_wall_height(t_data *data, double dist1, double angle)
 	nice_dist = 0;
 	nice_dist = dist1  * cos(angle * M_PI / 180);
 	// printf("dist1= %f\n", nice_dist);
-	data->height = fl_to_int(WALL / nice_dist * data->distpp);
+	data->height = (WALL / nice_dist * data->distpp);
 	// printf("wallheight = %d\n", data->height);
 }
 
@@ -39,7 +39,7 @@ int		ft_iswall(t_data *data, double x, double y)
 		data->color = 0xFF0000;
 		return(1);
 	}
-	if (data->map[(int)x / WALL][(int)y / WALL] == '1')
+	if (data->map[(int)x / (int)WALL][(int)y / (int)WALL] == '1')
 		{
 			data->color = 0x00FF00;
 			return (1);
