@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/26 10:07:46 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/12 11:57:57 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/14 09:09:07 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void    draw_sky(t_env *env, t_data *data)
 {
     int x;
     int y;
+	(void)data;
 
     y = 0;
     while (y < HEIGHT / 2)
@@ -34,6 +35,7 @@ void    draw_floor(t_env *env, t_data *data)
 {
     int x;
     int y;
+	(void)data;
 
     y = HEIGHT / 2;
     while (y < HEIGHT)
