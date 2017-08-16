@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/23 11:12:38 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/12 12:45:06 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/16 10:00:51 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,56 @@
 
 void	move_forward(t_env *env)
 {
+	double tmpx;
+	double tmpy;
+
+	tmpx = env->dat->px + 0.2 * cos(env->dat->alpha * M_PI / 180);
+	tmpy = env->dat->py + 0.2 * sin(env->dat->alpha * M_PI / 180) * -1;
+	if (env->dat->map[fl_to_int(tmpx)][fl_to_int(tmpy)] != '1')
+	{
 		env->dat->px += 0.2 * cos(env->dat->alpha * M_PI / 180);
 		env->dat->py += (0.2 * sin(env->dat->alpha * M_PI / 180)) * -1;
+	}
 }
 
 void	move_back(t_env *env)
 {
+	double tmpx;
+	double tmpy;
+
+	tmpx = env->dat->px - 0.2 * cos(env->dat->alpha * M_PI / 180);
+	tmpy = env->dat->py - (0.2 * sin(env->dat->alpha * M_PI / 180)) * -1; 
+	if (env->dat->map[fl_to_int(tmpx)][fl_to_int(tmpy)] != '1')
+	{
 		env->dat->px -= 0.2 * cos(env->dat->alpha * M_PI / 180);
 		env->dat->py -= 0.2 * sin(env->dat->alpha * M_PI / 180) * -1;
+	}
 }
 
 void	move_left(t_env *env)
 {
+	double tmpx;
+	double tmpy;
+
+	tmpx = env->dat->py + 0.2 * cos(env->dat->alpha * M_PI / 180) * -1;
+	tmpy = env->dat->px + (0.2 * sin(env->dat->alpha * M_PI / 180)) * -1;
+	if (env->dat->map[fl_to_int(tmpx)][fl_to_int(tmpy)] != '1')
+	{
 		env->dat->py += 0.2 * cos(env->dat->alpha * M_PI / 180) * -1;
 		env->dat->px += (0.2 * sin(env->dat->alpha * M_PI / 180)) * -1;
+	}
 }
 
 void	move_right(t_env *env)
 {
+	double tmpx;
+	double tmpy;
+
+	tmpx = env->dat->py - 0.2 * cos(env->dat->alpha * M_PI / 180) * -1;
+	tmpy = env->dat->px - (0.2 * sin(env->dat->alpha * M_PI / 180)) * -1;
+	if (env->dat->map[fl_to_int(tmpx)][fl_to_int(tmpy)] != '1')
+	{
 		env->dat->py -= 0.2 * cos(env->dat->alpha * M_PI / 180) * -1;
 		env->dat->px -= (0.2 * sin(env->dat->alpha * M_PI / 180)) * -1;
+	}
 }

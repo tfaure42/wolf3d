@@ -6,12 +6,12 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:53 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/12 12:07:28 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/16 09:35:49 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H 
+#ifndef WOLF3D_H
+# define WOLF3D_H 
 # include <stdio.h>
 # include <mlx.h>
 # include "../libft/libft.h"
