@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 11:35:18 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/16 14:41:26 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/16 15:07:06 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    draw_wall(t_data *data, t_env *env)
 	data->wally = (HEIGHT / 2) - (data->height / 2);
 	if (data->height > max)
 	{
-		while (max != 0 && data->wallx < LEN)
+		while (max != -1 && data->wallx < LEN)
 		{
 			((unsigned int *)env->data)[data->wallx + max * LEN] = data->color;
 			max--;
@@ -30,9 +30,10 @@ void    draw_wall(t_data *data, t_env *env)
 	}
 	else
 	{
-		while (data->wally <= HEIGHT - y)
+		while (data->wally <= HEIGHT - y && data->wally) 
 		{
-			((unsigned int *)env->data)[data->wallx + data->wally * LEN] = data->color;
+			((unsigned int *)env->data)[data->wallx + data->wally * LEN]
+				= data->color;
 			data->wally++;
 		}
 	}
