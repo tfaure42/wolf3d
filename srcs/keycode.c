@@ -6,11 +6,18 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 10:53:07 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/12 12:04:34 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/16 14:40:31 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
+
+int		mouse_hook_escape(t_env *env)
+{
+	if (env)
+		exit(0);
+	return (1);
+}
 
 int     my_key_func(int keycode, t_env *env)
 {
@@ -24,7 +31,7 @@ int     my_key_func(int keycode, t_env *env)
 		move_left(env);
 	if (keycode == 2)
 		move_right(env);
-    if (keycode == 124)
+   	if (keycode == 124)
 		env->dat->alpha -= 3; 
 	if (keycode == 123)
 		env->dat->alpha += 3;

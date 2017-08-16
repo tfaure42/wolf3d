@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:29 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/12 11:57:12 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/16 14:40:34 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ int     main(int ac,char **av)
     parse(&data, av[1]);
 	env.dat = &data;
     data.alpha = 0;
-    data.px = 6;
-    data.py = 5;
+    data.px = 5;
+    data.py = 6;
     init_data(&data);
     init_mlx(&env);
     find_the_wall(&data, &env);
     put_mlx(&env);
     mlx_hook(env.win, 2, 3, my_key_func, &env);
+	mlx_hook(env.win, 17, 0, mouse_hook_escape, &env);
 	mlx_loop(env.mlx);
     return (MAKE_AMERICA_GREAT_AGAIN);
 }
