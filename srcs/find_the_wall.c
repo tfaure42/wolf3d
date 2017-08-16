@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/16 13:25:32 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/08/16 14:08:34 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ int		ft_iswall(t_data *data, double x, double y)
 			data->color = 0x9F81F7;
 		return (1);
 	}
+	if ((int)(x / WALL) < 0 && (int)(y / WALL) < 0 && (int)(x / WALL)
+				> data->map_size - 1 && (int)(y / WALL) > data->map_size - 1)
+				return(1);
 	return (0);
 }
 
@@ -77,12 +80,13 @@ void	find_the_wall(t_data *data, t_env *env)
 		ft_check(data);
 		dist1 = sqrt((int)pow(data->posx - data->ax, 2) +
 				(int)pow(data->posy - data->ay, 2));
-		dist1 = abs(dist1);
+				dist1 = abs(dist1);
 		ft_wall_height(data, dist1, angle);
 		draw_wall(data, env);
 		data->beta -= data->angle_ray;
 		data->beta = set_degree(data->beta);
 		data->wallx++;
 		angle -= data->angle_ray;
+
 	}
 }
