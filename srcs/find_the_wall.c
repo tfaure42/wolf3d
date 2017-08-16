@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/14 08:41:26 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/08/16 12:29:01 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,7 @@ int		ft_iswall(t_data *data, double x, double y)
 
 	xa = x - cos(data->beta * M_PI / 180);
 	ya = y - sin(data->beta * M_PI / 180) * -1;
-	// if ((int)x / WALL < 0 || (int)y / WALL < 0 || (int)x / WALL > data->map_size-1 || (int)y / WALL > data->map_size-1)
-	// {
-	// 	data->color = 0;
-	// 	return(1);
-	// }
-	// if ((int)x / WALL == 0 || (int)y / WALL == 0 || (int)x / WALL == data->map_size-1 || (int)y / WALL == data->map_size-1)
-	// {
-	// 	data->color = 0x555555;
-	// 	return(1);
-	// }
-	if (data->map[fl_to_int(x) / (int)WALL][fl_to_int(y) / (int)WALL] == '1' || (int)x / WALL < 0 || (int)y / WALL < 0 || (int)x / WALL > data->map_size-1 || (int)y / WALL > data->map_size-1)
+	if (data->map[fl_to_int(x) / (int)WALL][fl_to_int(y) / (int)WALL] == '1' && (int)(x / WALL) >= 0 && (int)(y / WALL) >= 0 && (int)(x / WALL) <= data->map_size - 1 && (int)(y / WALL) <= data->map_size - 1)
 		{
 			if (fl_to_int(x) / (int)WALL == fl_to_int(xa + 1) / (int)WALL && fl_to_int(y) / (int)WALL == fl_to_int(ya) / (int)WALL)
 			data->color = 0xBCA9F5;
