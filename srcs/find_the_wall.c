@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/16 14:08:34 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/17 13:50:36 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,16 @@ int		ft_iswall(t_data *data, double x, double y)
 	{
 		if (fl_to_int(x) / (int)WALL == fl_to_int(xa + 1) / (int)WALL &&
 				fl_to_int(y) / (int)WALL == fl_to_int(ya) / (int)WALL)
-			data->color = 0xBCA9F5;
+			data->color = data->color1;
 		if (fl_to_int(y) / (int)WALL == fl_to_int(ya + 1) / (int)WALL &&
 				fl_to_int(x) / (int)WALL == fl_to_int(xa) / (int)WALL)
-			data->color = 0xAE95F8;
-		if (fl_to_int(x) / (int)WALL == fl_to_int(xa - 1) / (int)WALL &&
-				fl_to_int(y) / (int)WALL == fl_to_int(ya) / (int)WALL)
-			data->color = 0x8D6AF7;
+			data->color = data->color2;
 		if (fl_to_int(y) / (int)WALL == fl_to_int(ya - 1) / (int)WALL &&
 				fl_to_int(x) / (int)WALL == fl_to_int(xa) / (int)WALL)
-			data->color = 0x9F81F7;
+			data->color = data->color3;
+		if (fl_to_int(x) / (int)WALL == fl_to_int(xa - 1) / (int)WALL &&
+				fl_to_int(y) / (int)WALL == fl_to_int(ya) / (int)WALL)
+			data->color = data->color4;
 		return (1);
 	}
 	if ((int)(x / WALL) < 0 && (int)(y / WALL) < 0 && (int)(x / WALL)
@@ -80,7 +80,7 @@ void	find_the_wall(t_data *data, t_env *env)
 		ft_check(data);
 		dist1 = sqrt((int)pow(data->posx - data->ax, 2) +
 				(int)pow(data->posy - data->ay, 2));
-				dist1 = abs(dist1);
+		dist1 = abs(dist1);
 		ft_wall_height(data, dist1, angle);
 		draw_wall(data, env);
 		data->beta -= data->angle_ray;

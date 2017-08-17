@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 10:53:07 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/16 14:40:31 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/08/17 09:40:02 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int		mouse_hook_escape(t_env *env)
 
 int     my_key_func(int keycode, t_env *env)
 {
+	if (keycode == 24)
+		color(env);
     if (keycode == 53)
         exit(0);
 	if (keycode == 13)
@@ -39,6 +41,6 @@ int     my_key_func(int keycode, t_env *env)
 	env->img = mlx_new_image(env->mlx, LEN, HEIGHT);
 	init_data(env->dat);
 	find_the_wall(env->dat, env);
-	put_mlx(env);
+	put_mlx(env, 1);
 	return (1);
 }

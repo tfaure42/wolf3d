@@ -6,7 +6,7 @@
 #    By: myernaux <myernaux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/18 11:04:41 by tfaure            #+#    #+#              #
-#    Updated: 2017/06/26 10:13:54 by myernaux         ###   ########.fr        #
+#    Updated: 2017/08/17 13:47:36 by myernaux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ_PATH = obj
 LIBFT_PATH = libft
 LIBFTA = libft.a
 LIBFT = $(addprefix $(LIBFT_PATH)/,$(LIBFTA))
-SRC_NAME = parse.c init_data.c find_the_wall.c init_mlx.c set_degree.c draw_wall.c keycode.c move.c draw_env.c
+SRC_NAME = parse.c init_data.c find_the_wall.c init_mlx.c set_degree.c draw_wall.c keycode.c move.c draw_env.c color.c color_wall.c color_ground.c color_sky.c set_color_day.c
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(SRC_NAME:.c=.o))
 

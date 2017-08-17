@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/26 10:07:46 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/14 09:09:07 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/08/17 13:41:38 by myernaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void    draw_sky(t_env *env, t_data *data)
         x = 0;
         while (x < LEN)
         {
-            ((unsigned int *)env->data)[x + y * LEN] = 0x0058ACFA;
+            ((unsigned int *)env->data)[x + y * LEN] = data->color6;
             x++;
         }
         y++;
@@ -43,7 +43,7 @@ void    draw_floor(t_env *env, t_data *data)
         x = 0;
         while (x < LEN)
         {
-            ((unsigned int *)env->data)[x + y * LEN] = 0x00777777;
+            ((unsigned int *)env->data)[x + y * LEN] = data->color5;;
             x++;
         }
         y++;
