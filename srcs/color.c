@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myernaux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 08:05:54 by myernaux          #+#    #+#             */
-/*   Updated: 2017/08/17 13:53:15 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/08/21 11:32:31 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,24 @@ int		mouse_hook_color(int button, int x, int y, t_env *env)
 		else if ((x > 259 && x <= 334) && (y > 109 && y <= 184))
 			printf("C8 ok\n");
 		else if ((x > 34 && x <= 184) && (y > 257 && y <= 332))
-			printf("H ok\n");
+			{
+					env->dat->color5 = 0x4C9900;
+			}
 		else if ((x > 184 && x <= 334) && (y > 257 && y <= 332))
-			printf("B ok\n");
+			env->dat->color5 = 0x777777;
 		else if ((x > 34 && x <= 184) && (y > 405 && y <= 480))
-			printf("J ok\n");
+			env->dat->color6 = 0x58ACFA;
 		else if ((x > 184 && x <= 332) && (y > 405 && y <= 480))
-			printf("N ok\n");
+			env->dat->color6 = 0x0404B4;
 		else if ((x > 0 && x <= 368) && (y > 514 && y <= 589))
-			printf("DONE ok\n");
+			{
+				mlx_destroy_image(env->mlx, env->img);
+				mlx_destroy_window(env->mlx, env->win2);
+				env->img = mlx_new_image(env->mlx, LEN, HEIGHT);
+				init_data(env->dat);
+				find_the_wall(env->dat, env);
+				put_mlx(env, 1);
+			}
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/17 13:50:36 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/08/21 12:54:50 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_wall_height(t_data *data, double dist1, double angle)
 
 	nice_dist = 0;
 	nice_dist = dist1 * cos(angle * M_PI / 180);
-	data->height = (WALL / nice_dist * data->distpp);
+	data->height = (WALL / fl_to_int(nice_dist) * data->distpp);
 }
 
 int		ft_iswall(t_data *data, double x, double y)
@@ -67,7 +67,7 @@ void	ft_check(t_data *data)
 
 void	find_the_wall(t_data *data, t_env *env)
 {
-	int		dist1;
+	double		dist1;
 	double	angle;
 
 	draw_env(env, data);
@@ -78,9 +78,9 @@ void	find_the_wall(t_data *data, t_env *env)
 	while (angle >= -30)
 	{
 		ft_check(data);
-		dist1 = sqrt((int)pow(data->posx - data->ax, 2) +
-				(int)pow(data->posy - data->ay, 2));
-		dist1 = abs(dist1);
+		dist1 = sqrt((pow(data->posx - data->ax, 2)) +
+				(pow(data->posy - data->ay, 2)));
+		dist1 = fabs(dist1);
 		ft_wall_height(data, dist1, angle);
 		draw_wall(data, env);
 		data->beta -= data->angle_ray;

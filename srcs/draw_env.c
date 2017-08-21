@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/26 10:07:46 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/17 13:41:38 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/08/21 11:38:17 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,14 @@ void    draw_floor(t_env *env, t_data *data)
     int y;
 	(void)data;
 
+    if (env->dat->color5 == 0x222222)
+		env->dat->color5 =  0x777777;
+    if (env->dat->color5 == 0x003300)
+		env->dat->color5 =  0x4C9900;
+    if (env->dat->color6 == 0x0404B4 && env->dat->color5 == 0x4C9900)
+	    env->dat->color5 =  0x003300;
+	else if (env->dat->color6 == 0x0404B4 && env->dat->color5 == 0x777777)
+		env->dat->color5 =  0x222222;
     y = HEIGHT / 2;
     while (y < HEIGHT)
     {
