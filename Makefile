@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+         #
+#    By: ocojeda- <ocojeda-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/18 11:04:41 by tfaure            #+#    #+#              #
-#    Updated: 2017/08/21 10:34:44 by tfaure           ###   ########.fr        #
+#    Updated: 2017/08/22 14:46:14 by ocojeda-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,3 +56,5 @@ fclean: clean
 	@echo "$(GREEN)---Wolf3D removed completely---$(NC)"
 
 re: fclean all
+
+.PHONY: all clean fclean re
