@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_the_wall.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ocojeda- <ocojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/21 12:54:50 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/22 18:07:27 by ocojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,34 @@ int		ft_iswall(t_data *data, double x, double y)
 {
 	double xa;
 	double ya;
+	int		temp;
+	int 	tempi;
 
 	xa = x - cos(data->beta * M_PI / 180);
 	ya = y - sin(data->beta * M_PI / 180) * -1;
-	if (data->map[fl_to_int(x) / (int)WALL][fl_to_int(y) / (int)WALL] == '1'
+	
+	temp = (int)(x) / (int)WALL;
+	tempi = (int)(y) / (int)WALL;
+	if(temp < 0 || temp >= data->map_size || tempi < 0 || tempi >= data->map_size)
+	{
+		printf("x /  WALL = %i y / WALL %i Oh farts!!!!!!!!!!!\n", temp, temp);
+		return (1);
+	}
+	if (data->map[temp][tempi] == '1'
 			&& (int)(x / WALL) >= 0 && (int)(y / WALL) >= 0 && (int)(x / WALL)
 				<= data->map_size - 1 && (int)(y / WALL) <= data->map_size - 1)
 	{
-		if (fl_to_int(x) / (int)WALL == fl_to_int(xa + 1) / (int)WALL &&
-				fl_to_int(y) / (int)WALL == fl_to_int(ya) / (int)WALL)
+		if ((int)(x) / (int)WALL == (int)(xa + 1) / (int)WALL &&
+				(int)(y) / (int)WALL == (int)(ya) / (int)WALL)
 			data->color = data->color1;
-		if (fl_to_int(y) / (int)WALL == fl_to_int(ya + 1) / (int)WALL &&
-				fl_to_int(x) / (int)WALL == fl_to_int(xa) / (int)WALL)
+		if ((int)(y) / (int)WALL == (int)(ya + 1) / (int)WALL &&
+				(int)(x) / (int)WALL == (int)(xa) / (int)WALL)
 			data->color = data->color2;
-		if (fl_to_int(y) / (int)WALL == fl_to_int(ya - 1) / (int)WALL &&
-				fl_to_int(x) / (int)WALL == fl_to_int(xa) / (int)WALL)
+		if ((int)(y) / (int)WALL == (int)(ya - 1) / (int)WALL &&
+				(int)(x) / (int)WALL == (int)(xa) / (int)WALL)
 			data->color = data->color3;
-		if (fl_to_int(x) / (int)WALL == fl_to_int(xa - 1) / (int)WALL &&
-				fl_to_int(y) / (int)WALL == fl_to_int(ya) / (int)WALL)
+		if ((int)(x) / (int)WALL == (int)(xa - 1) / (int)WALL &&
+				(int)(y) / (int)WALL == (int)(ya) / (int)WALL)
 			data->color = data->color4;
 		return (1);
 	}

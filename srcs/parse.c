@@ -6,7 +6,7 @@
 /*   By: ocojeda- <ocojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:16:57 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/22 15:08:25 by ocojeda-         ###   ########.fr       */
+/*   Updated: 2017/08/22 17:24:35 by ocojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		parse(t_data *data, char *filename)
 	{
 		data->map_size = ft_atoi(map[1]);
 		free_splited_str(map);
-		data->map = (char **)malloc(sizeof(char*) * (data->map_size));
+		data->map = (char **)malloc(sizeof(char*) * (data->map_size + 1));
 		i = 0;
 		while (get_next_line(fd, &line))
 			if ((int)ft_strlen(line) == data->map_size)
