@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   color_ground.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myernaux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 09:35:21 by myernaux          #+#    #+#             */
-/*   Updated: 2017/08/17 10:31:56 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/08/24 17:31:13 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
 
-static void		ft_square(t_env *env, int px, int py, int color)
+static void	ft_square(t_env *env, int px, int py, int color)
 {
 	int x;
 	int y;
@@ -32,7 +32,6 @@ static void		ft_square(t_env *env, int px, int py, int color)
 static int	set_color(t_env *env, int n)
 {
 	(void)env;
-
 	if (n == 0 || n == 1)
 		return (0x31B404);
 	else if (n == 2 || n == 3)
@@ -40,14 +39,14 @@ static int	set_color(t_env *env, int n)
 	return (0);
 }
 
-void	color_ground(t_env *env)
+void		color_ground(t_env *env)
 {
 	int x;
 	int y;
 	int n;
 	int color;
-	(void)env;
 
+	(void)env;
 	n = 0;
 	y = 257;
 	while (y <= 257)

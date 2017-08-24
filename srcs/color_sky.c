@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color_sky.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myernaux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 09:42:30 by myernaux          #+#    #+#             */
-/*   Updated: 2017/08/17 10:31:58 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/08/24 18:34:11 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ static void		ft_square(t_env *env, int px, int py, int color)
 	}
 }
 
-static int	set_color(t_env *env, int n)
+static int		set_color(t_env *env, int n)
 {
 	(void)env;
-
 	if (n == 0 || n == 1)
 		return (0x58ACFA);
 	else if (n == 2 || n == 3)
@@ -40,14 +39,14 @@ static int	set_color(t_env *env, int n)
 	return (0);
 }
 
-void	color_sky(t_env *env)
+void			color_sky(t_env *env)
 {
 	int x;
 	int y;
 	int n;
 	int color;
-	(void)env;
 
+	(void)env;
 	n = 0;
 	y = 405;
 	while (y <= 405)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ocojeda- <ocojeda-@student.42.fr>          +#+  +:+       +#+         #
+#    By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/18 11:04:41 by tfaure            #+#    #+#              #
-#    Updated: 2017/08/22 14:46:14 by ocojeda-         ###   ########.fr        #
+#    Updated: 2017/08/24 17:24:27 by tfaure           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFTA = libft.a
 LIBFT = $(addprefix $(LIBFT_PATH)/,$(LIBFTA))
 SRC_NAME = parse.c init_data.c find_the_wall.c init_mlx.c set_degree.c \
 	draw_wall.c keycode.c move.c draw_env.c color.c color_wall.c color_ground.c\
-	color_sky.c set_color_day.c
+	color_sky.c set_color_1.c set_color_2.c
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(SRC_NAME:.c=.o))
 

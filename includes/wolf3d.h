@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:53 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/17 13:46:22 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/08/24 17:26:59 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,21 @@ void		color(t_env *env);
 void		color_wall(t_env *env);
 void		color_ground(t_env *env);
 void		color_sky(t_env *env);
-void		set_color1(t_env *env, int i);
+void		set_color_red(t_env *env, int i);
+void		set_color_orange(t_env *env, int i);
+void		set_color_blue_light(t_env *env, int i);
+void		set_color_blue_dark(t_env *env, int i);
+void		set_color_purple(t_env *env, int i);
+void		set_color_white(t_env *env, int i);
+void		set_color_pink(t_env *env, int i);
+void		set_color_green(t_env *env, int i);
 void		init_color(t_env *env);
 void		move_forward(t_env *env);
 void		move_back(t_env *env);
 void		move_left(t_env *env);
 void		move_right(t_env *env);
 void    	draw_env(t_env *env, t_data *data);
+void		go_to_night(t_env *env);
+void		go_to_day(t_env *env);
 
 #endif

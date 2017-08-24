@@ -6,13 +6,13 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 11:35:18 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/16 15:07:06 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/08/24 18:41:02 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
 
-void    draw_wall(t_data *data, t_env *env)
+void	draw_wall(t_data *data, t_env *env)
 {
 	int max;
 	int y;
@@ -30,12 +30,11 @@ void    draw_wall(t_data *data, t_env *env)
 	}
 	else
 	{
-		while (data->wally <= HEIGHT - y && data->wally) 
+		while (data->wally <= HEIGHT - y && data->wally)
 		{
-			((unsigned int *)env->data)[data->wallx + data->wally * LEN]
-				= data->color;
+			((unsigned int *)env->data)\
+			[data->wallx + data->wally * LEN] = data->color;
 			data->wally++;
 		}
 	}
 }
-	

@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_the_wall.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/24 18:42:17 by tfaure            #+#    #+#             */
+/*   Updated: 2017/08/24 20:00:10 by tfaure           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
 
-void	ft_wall_height(t_data *data, double dist1, double angle)
+void			ft_wall_height(t_data *data, double dist1, double angle)
 {
 	double	nice_dist;
 
@@ -10,8 +21,17 @@ void	ft_wall_height(t_data *data, double dist1, double angle)
 	data->height = (WALL / fl_to_int(nice_dist) * data->distpp);
 }
 
-static int	mathilde_est_une_pute(int temp, int tempi, int xa, int ya, t_data *data)
+static int		mathilde_est_une_pute(double x, double y, t_data *data)
 {
+	double	xa;
+	double	ya;
+	int		temp;
+	int		tempi;
+
+	xa = x - cos(data->beta * M_PI / 180);
+	ya = y - sin(data->beta * M_PI / 180) * -1;
+	temp = (int)(x) / (int)WALL;
+	tempi = (int)(y) / (int)WALL;
 	if (temp == (int)(xa + 1) / (int)WALL && tempi == (int)(ya) / (int)WALL)
 		data->color = data->color1;
 	if (tempi == (int)(ya + 1) / (int)WALL && temp == (int)(xa) / (int)WALL)
@@ -20,31 +40,27 @@ static int	mathilde_est_une_pute(int temp, int tempi, int xa, int ya, t_data *da
 		data->color = data->color3;
 	if (temp == (int)(xa - 1) / (int)WALL && tempi == (int)(ya) / (int)WALL)
 		data->color = data->color4;
-		return(1);
+	return (1);
 }
 
-int		ft_iswall(t_data *data, double x, double y)
+int				ft_iswall(t_data *data, double x, double y)
 {
-	double xa;
-	double ya;
 	int		temp;
-	int 	tempi;
+	int		tempi;
 
-	xa = x - cos(data->beta * M_PI / 180);
-	ya = y - sin(data->beta * M_PI / 180) * -1;
-	
 	temp = (int)(x) / (int)WALL;
 	tempi = (int)(y) / (int)WALL;
-	if(temp < 0 || temp >= data->map_size - 1 || tempi < 0 || tempi > data->map_size - 1)
-		return (mathilde_est_une_pute(temp, tempi, xa, ya, data));
-	if (data->map[temp][tempi] == '1'
+	if (temp < 0.5 || temp >= data->map_size - 1.5 || tempi < 0.5 || \
+			tempi > data->map_size - 0.5)
+		return (mathilde_est_une_pute(x, y, data));
+	if ((data->map[temp][tempi] == '1' || temp < 0.5 || tempi < 0.5)
 			&& (int)(x / WALL) >= 0 && (int)(y / WALL) >= 0 && (int)(x / WALL)
 				<= data->map_size - 1 && (int)(y / WALL) <= data->map_size - 1)
-	return (mathilde_est_une_pute(temp, tempi, xa, ya, data));
+		return (mathilde_est_une_pute(x, y, data));
 	return (0);
 }
 
-void	ft_check(t_data *data)
+void			ft_check(t_data *data)
 {
 	data->ax = data->posx + (data->posy - ((data->posy / WALL) * WALL))
 		* cos(data->beta * M_PI / 180);
@@ -57,9 +73,9 @@ void	ft_check(t_data *data)
 	}
 }
 
-void	find_the_wall(t_data *data, t_env *env)
+void			find_the_wall(t_data *data, t_env *env)
 {
-	double		dist1;
+	double	dist1;
 	double	angle;
 
 	draw_env(env, data);
@@ -79,6 +95,5 @@ void	find_the_wall(t_data *data, t_env *env)
 		data->beta = set_degree(data->beta);
 		data->wallx++;
 		angle -= data->angle_ray;
-
 	}
 }

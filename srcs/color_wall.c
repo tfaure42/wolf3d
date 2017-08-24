@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   color_wall.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myernaux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 09:28:55 by myernaux          #+#    #+#             */
-/*   Updated: 2017/08/17 09:54:12 by myernaux         ###   ########.fr       */
+/*   Updated: 2017/08/24 18:35:11 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
 
-static void		ft_square(t_env *env, int px, int py, int color)
+static void	ft_square(t_env *env, int px, int py, int color)
 {
 	int x;
 	int y;
@@ -32,7 +32,6 @@ static void		ft_square(t_env *env, int px, int py, int color)
 static int	set_color(t_env *env, int n)
 {
 	(void)env;
-
 	if (n == 0)
 		return (0xFF0000);
 	else if (n == 1)
@@ -52,14 +51,14 @@ static int	set_color(t_env *env, int n)
 	return (0);
 }
 
-void	color_wall(t_env *env)
+void		color_wall(t_env *env)
 {
 	int x;
 	int y;
 	int n;
 	int color;
-	(void)env;
 
+	(void)env;
 	n = 0;
 	y = 34;
 	while (y <= 184)
