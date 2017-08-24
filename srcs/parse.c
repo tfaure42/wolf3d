@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocojeda- <ocojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:16:57 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/24 11:51:21 by ocojeda-         ###   ########.fr       */
+/*   Updated: 2017/08/24 12:50:35 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int		parse(t_data *data, char *filename)
 		printf("%i\n", ft_strlen(line));
 		if(ft_strchr(data->map[i], '5'))
 		{
-			data->px = ft_strchr(data->map[i], '5') - data->map[i];
-			data->py = i;
+			data->px = ft_strchr(data->map[i], '5') - data->map[i]+1;
+			data->py = i-1;
 		}
 		free(line);
 		i++;
@@ -49,8 +49,8 @@ int		parse(t_data *data, char *filename)
 				data->map[i] = ft_strdup(line);
 				if(ft_strchr(data->map[i], '5'))
 				{
-					data->px = ft_strchr(data->map[i], '5') - data->map[i];
-					data->py = i;
+					data->px = ft_strchr(data->map[i], '5') - data->map[i] - 1;
+					data->py = i + 1;
 				}
 				free(line);
 				i++;
