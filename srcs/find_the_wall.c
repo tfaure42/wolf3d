@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   find_the_wall.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/19 13:21:40 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/24 13:46:08 by tfaure           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
 
@@ -52,9 +41,6 @@ int		ft_iswall(t_data *data, double x, double y)
 			&& (int)(x / WALL) >= 0 && (int)(y / WALL) >= 0 && (int)(x / WALL)
 				<= data->map_size - 1 && (int)(y / WALL) <= data->map_size - 1)
 	return (mathilde_est_une_pute(temp, tempi, xa, ya, data));
-//	if ((int)(x / WALL) < 0 && (int)(y / WALL) < 0 && (int)(x / WALL)
-//				> data->map_size - 1 && (int)(y / WALL) > data->map_size - 1)
-//				return(1);
 	return (0);
 }
 
