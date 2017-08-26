@@ -6,7 +6,7 @@
 #    By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/18 11:04:41 by tfaure            #+#    #+#              #
-#    Updated: 2017/08/24 17:24:27 by tfaure           ###   ########.fr        #
+#    Updated: 2017/08/26 13:25:07 by tfaure           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = wolf3d
 NAMEBIN = wolf3d.a
 FLAGS = -Wall -Wextra #-Werror
 INC = includes
-MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
+MINILIBX = minilibx_macos/libmlx.a
+MLXFLAGS = -framework OpenGL -framework AppKit -lm
 SRC_PATH = srcs
 OBJ_PATH = obj
 LIBFT_PATH = libft
@@ -22,7 +23,7 @@ LIBFTA = libft.a
 LIBFT = $(addprefix $(LIBFT_PATH)/,$(LIBFTA))
 SRC_NAME = parse.c init_data.c find_the_wall.c init_mlx.c set_degree.c \
 	draw_wall.c keycode.c move.c draw_env.c color.c color_wall.c color_ground.c\
-	color_sky.c set_color_1.c set_color_2.c
+	color_sky.c set_color_1.c set_color_2.c img.c
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(SRC_NAME:.c=.o))
 
@@ -39,14 +40,16 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 
 $(NAME): $(OBJS)
 	@make -C $(LIBFT_PATH)
+	@make -C minilibx_macos
 	@cp $(LIBFT) ./$(NAMEBIN)
 	@ar rc $(NAMEBIN) $(OBJS)
 	@ranlib $(NAMEBIN)
-	@gcc -o $(NAME) $(NAMEBIN) srcs/main.c $(MLXFLAGS)
+	@gcc -o $(NAME) $(NAMEBIN) $(MINILIBX) srcs/main.c $(MLXFLAGS)
 	@echo "$(GREEN)--------Wolf3D compiled--------$(NC)"
 
 clean:
 	@make clean -C $(LIBFT_PATH)
+	@make clean -C minilibx_macos
 	@/bin/rm -rf $(OBJ_PATH)
 
 fclean: clean

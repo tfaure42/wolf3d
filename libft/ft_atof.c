@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/22 19:43:49 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/05/01 21:16:11 by bbeldame         ###   ########.fr       */
+/*   Created: 2017/04/22 19:43:49 by tfaure            #+#    #+#             */
+/*   Updated: 2017/08/26 16:56:03 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static double	zero_dot(intmax_t nbr)
+static float	zero_dot(intmax_t nbr)
 {
 	int				digits;
 	int				diviser;
@@ -28,18 +28,18 @@ static double	zero_dot(intmax_t nbr)
 	}
 	while (digits-- > 1)
 		diviser *= 10;
-	return ((double)nbr / (double)diviser);
+	return ((float)nbr / (float)diviser);
 }
 
-double			ft_atof(const char *str)
+float			ft_atof(const char *str)
 {
-	double		res;
+	float		res;
 	intmax_t	after_comma;
 	int			i;
 	int			neg;
 
 	neg = 0;
-	res = (double)ft_atoi(str);
+	res = (float)ft_atoi(str);
 	if (res == 0 && str[0] == '-')
 		neg = 1;
 	i = 0;

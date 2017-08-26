@@ -6,25 +6,25 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:42:17 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/24 20:00:10 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/26 16:16:43 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
 
-void			ft_wall_height(t_data *data, double dist1, double angle)
+void			ft_wall_height(t_data *data, float dist1, float angle)
 {
-	double	nice_dist;
+	float	nice_dist;
 
 	nice_dist = 0;
 	nice_dist = dist1 * cos(angle * M_PI / 180);
 	data->height = (WALL / fl_to_int(nice_dist) * data->distpp);
 }
 
-static int		mathilde_est_une_pute(double x, double y, t_data *data)
+static int		mathilde_est_une_pute(float x, float y, t_data *data)
 {
-	double	xa;
-	double	ya;
+	float	xa;
+	float	ya;
 	int		temp;
 	int		tempi;
 
@@ -43,7 +43,7 @@ static int		mathilde_est_une_pute(double x, double y, t_data *data)
 	return (1);
 }
 
-int				ft_iswall(t_data *data, double x, double y)
+int				ft_iswall(t_data *data, float x, float y)
 {
 	int		temp;
 	int		tempi;
@@ -75,8 +75,8 @@ void			ft_check(t_data *data)
 
 void			find_the_wall(t_data *data, t_env *env)
 {
-	double	dist1;
-	double	angle;
+	float	dist1;
+	float	angle;
 
 	draw_env(env, data);
 	data->beta = data->alpha + FOV / 2;
@@ -87,7 +87,7 @@ void			find_the_wall(t_data *data, t_env *env)
 	{
 		ft_check(data);
 		dist1 = sqrt((pow(data->posx - data->ax, 2)) +
-				(pow(data->posy - data->ay, 2)));
+		(pow(data->posy - data->ay, 2)));
 		dist1 = fabs(dist1);
 		ft_wall_height(data, dist1, angle);
 		draw_wall(data, env);

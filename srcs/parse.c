@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:03:05 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/24 19:47:29 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/24 21:25:43 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	get_map(int fd, t_data *data, int i)
 			err_found("map error\
 			, the number of arguments in every line is not the same");
 	}
+	data->map[i] = NULL;
 }
 
 int		parse(t_data *data, char *filename)

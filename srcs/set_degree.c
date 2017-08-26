@@ -6,13 +6,13 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 09:10:23 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/24 19:44:50 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/24 21:39:22 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
 
-double		set_degree(double deg)
+float		set_degree(float deg)
 {
 	if (deg > 180)
 		deg = deg - 360;
