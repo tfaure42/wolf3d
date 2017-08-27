@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:42:17 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/26 21:55:19 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/27 12:18:47 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,20 @@ void			ft_wall_height(t_data *data, float dist1, float angle)
 	data->height = (WALL / fl_to_int(nice_dist) * data->distpp);
 }
 
-static int		mathilde_est_une_pute(float x, float y, t_data *data)
+static int		wall_color(float x, float y, t_data *data)
 {
 	float	xa;
 	float	ya;
 	int		temp;
 	int		tempi;
 
-	xa = x - cos(data->beta * M_PI / 180);
-	ya = y - sin(data->beta * M_PI / 180) * -1;
+	while (data->map[(int)data->ax / (int)WALL][(int)data->ay / (int)WALL] == '1')
+	{
+		data->ax -= 0.05 * cos(data->beta * M_PI / 180);
+		data->ay -= 0.05 * sin(data->beta * M_PI / 180) * -1;
+	}
+		xa = x - cos(data->beta * M_PI / 180);
+		ya = y - sin(data->beta * M_PI / 180) * -1;
 	temp = (int)(x) / (int)WALL;
 	tempi = (int)(y) / (int)WALL;
 	if (temp == (int)(xa + 1) / (int)WALL && tempi == (int)(ya) / (int)WALL)
@@ -52,11 +57,11 @@ int				ft_iswall(t_data *data, float x, float y)
 	tempi = (int)(y) / (int)WALL;
 	if (temp < 0.5 || temp >= data->map_size - 1.5 || tempi < 0.5 || \
 			tempi > data->map_size - 0.5)
-		return (mathilde_est_une_pute(x, y, data));
+		return (wall_color(x, y, data));
 	if ((data->map[temp][tempi] == '1' || temp < 0.5 || tempi < 0.5)
 			&& (int)(x / WALL) >= 0 && (int)(y / WALL) >= 0 && (int)(x / WALL)
 				<= data->map_size - 1 && (int)(y / WALL) <= data->map_size - 1)
-		return (mathilde_est_une_pute(x, y, data));
+		return (wall_color(x, y, data));
 	return (0);
 }
 
@@ -68,8 +73,8 @@ void			ft_check(t_data *data)
 		* sin(data->beta * M_PI / 180) * -1;
 	while (ft_iswall(data, data->ax, data->ay) == 0)
 	{
-		data->ax += 0.1 * cos(data->beta * M_PI / 180);
-		data->ay += 0.1 * sin(data->beta * M_PI / 180) * -1;
+		data->ax += cos(data->beta * M_PI / 180);
+		data->ay += sin(data->beta * M_PI / 180) * -1;
 	}
 }
 

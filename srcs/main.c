@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 11:17:29 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/26 13:26:21 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/27 12:36:08 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		main(int ac, char **av)
 	init_mlx(&env);
 	find_the_wall(&data, &env);
 	put_mlx(&env, 1);
-	mlx_hook(env.win, 2, 3, my_key_func, &env);
+	mlx_hook(env.win, 2, 0, my_key_func, &env);
 	mlx_hook(env.win, 17, 0, mouse_hook_escape, &env);
 	mlx_loop(env.mlx);
 	return (MAKE_AMERICA_GREAT_AGAIN);
