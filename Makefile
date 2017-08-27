@@ -6,13 +6,13 @@
 #    By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/18 11:04:41 by tfaure            #+#    #+#              #
-#    Updated: 2017/08/26 13:25:07 by tfaure           ###   ########.fr        #
+#    Updated: 2017/08/26 17:11:11 by tfaure           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = wolf3d
 NAMEBIN = wolf3d.a
-FLAGS = -Wall -Wextra #-Werror
+FLAGS = -Wall -Wextra -Werror
 INC = includes
 MINILIBX = minilibx_macos/libmlx.a
 MLXFLAGS = -framework OpenGL -framework AppKit -lm

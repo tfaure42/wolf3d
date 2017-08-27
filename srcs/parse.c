@@ -6,7 +6,7 @@
 /*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:03:05 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/24 21:25:43 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/26 21:49:56 by tfaure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int		parse(t_data *data, char *filename)
 		err_found("Only .wolf file");
 	if ((fd = open(filename, O_RDONLY)) == -1)
 		err_found("Unable to read the file");
-	if (!get_next_line(fd, &line))
+	if (get_next_line(fd, &line) <= 0)
 		err_found("get_next_line error");
 	data->map_size = ft_strlen(line);
 	if (!(data->map = (char **)malloc(sizeof(char*) * (data->map_size + 1))))
