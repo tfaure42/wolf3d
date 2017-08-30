@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_the_wall.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ocojeda- <ocojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:42:17 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/27 12:18:47 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/30 17:38:57 by ocojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ static int		wall_color(float x, float y, t_data *data)
 	int		temp;
 	int		tempi;
 
-	while (data->map[(int)data->ax / (int)WALL][(int)data->ay / (int)WALL] == '1')
+	while (data->map[(int)data->ax /
+			(int)WALL][(int)data->ay / (int)WALL] == '1')
 	{
 		data->ax -= 0.05 * cos(data->beta * M_PI / 180);
 		data->ay -= 0.05 * sin(data->beta * M_PI / 180) * -1;
 	}
-		xa = x - cos(data->beta * M_PI / 180);
-		ya = y - sin(data->beta * M_PI / 180) * -1;
+	xa = x - cos(data->beta * M_PI / 180);
+	ya = y - sin(data->beta * M_PI / 180) * -1;
 	temp = (int)(x) / (int)WALL;
 	tempi = (int)(y) / (int)WALL;
 	if (temp == (int)(xa + 1) / (int)WALL && tempi == (int)(ya) / (int)WALL)
@@ -96,9 +97,10 @@ void			find_the_wall(t_data *data, t_env *env)
 		dist1 = fabs(dist1);
 		ft_wall_height(data, dist1, angle);
 		draw_wall(data, env);
-		data->beta -= data->angle_ray;
+		env->dat->beta -= data->angle_ray;
 		data->beta = set_degree(data->beta);
 		data->wallx++;
 		angle -= data->angle_ray;
 	}
+	anti_aliasing_wolf(env, env->img_cpy);
 }

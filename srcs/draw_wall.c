@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_wall.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ocojeda- <ocojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 11:35:18 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/26 16:51:19 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/30 17:43:28 by ocojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	draw_wall(t_data *data, t_env *env)
 	{
 		while (max != -1 && data->wallx < LEN)
 		{
-			((unsigned int *)env->data)[data->wallx + max * LEN] = data->color;
+			env->img_cpy[data->wallx + max * LEN] = data->color;
 			max--;
 		}
 	}
@@ -33,8 +33,7 @@ void	draw_wall(t_data *data, t_env *env)
 		while (data->wally <= HEIGHT - y && (data->wallx + data->wally * \
 		LEN) < LEN * HEIGHT)
 		{
-			((unsigned int *)env->data)\
-			[data->wallx + data->wally * LEN] = data->color;
+			env->img_cpy[data->wallx + data->wally * LEN] = data->color;
 			data->wally++;
 		}
 	}

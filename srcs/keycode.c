@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keycode.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfaure <tfaure@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ocojeda- <ocojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 10:53:07 by tfaure            #+#    #+#             */
-/*   Updated: 2017/08/26 16:22:20 by tfaure           ###   ########.fr       */
+/*   Updated: 2017/08/30 17:39:30 by ocojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int		my_key_func(int keycode, t_env *env)
 		env->dat->alpha -= 2;
 	if (keycode == 123)
 		env->dat->alpha += 2;
-	reset_img(env->data, LEN - 1, HEIGHT - 1);
 	init_data(env->dat);
 	find_the_wall(env->dat, env);
 	put_mlx(env, 1);
